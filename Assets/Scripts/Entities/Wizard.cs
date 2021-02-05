@@ -2,20 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Wizard : AEntity
+public class Wizard : AEnemy
 {
-    public Wizard() : base(100f, 5f)
+    public Wizard() : base(100f, 5f, 0.1f, true)
     {}
-    
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

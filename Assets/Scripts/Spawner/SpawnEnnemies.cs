@@ -2,15 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SpawnEnnemies : MonoBehaviour
+public class SpawnEnnemies : ASpawner
 {
-    public GameObject ennemi;
-    [SerializeField] private float timer;
-    private bool isPressed;
+    public bool isPressed;
+
     // Start is called before the first frame update
     void Start()
     {
-        timer = 1f;
+        _InitSpawner(10f);
     }
 
     // Update is called once per frame
@@ -18,6 +17,11 @@ public class SpawnEnnemies : MonoBehaviour
     {
         if (isPressed == false)
             return;
-        timer -= Time.deltaTime;
+        _DownTimer();
+        if (_doSpawn() == true)
+        {
+            Spawn();
+            _ResetTimer();
+        }
     }
 }
