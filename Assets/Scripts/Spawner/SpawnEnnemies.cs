@@ -4,12 +4,17 @@ using UnityEngine;
 
 public class SpawnEnnemies : ASpawner
 {
-    public bool isPressed;
+    private bool isPressed;
 
     // Start is called before the first frame update
     void Start()
     {
         _InitSpawner(10f);
+    }
+
+    public void SetActive()
+    {
+        isPressed = true;
     }
 
     // Update is called once per frame
