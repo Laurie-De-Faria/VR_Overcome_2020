@@ -14,10 +14,13 @@ public class MovementRecognizer : MonoBehaviour
     public Transform movementSource;
     private float _thresholdDistanceNewPosition;
 
+    private bool isGrabWand;
     private bool isMoving;
     private List<Vector3> _listPositions = new List<Vector3>();
 
     private List<Gesture> _listSpells = new List<Gesture>();
+
+    [SerializeField] private SpellsManager _spellsManager;
 
     // DEBUG MODE
     [Header("DEBUG MODE")]
@@ -32,6 +35,7 @@ public class MovementRecognizer : MonoBehaviour
     void Start()
     {
         isMoving = false;
+        isGrabWand = false;
         _thresholdDistanceNewPosition = 0.05f;
         keepMove.AddOnStateUpListener(TriggerUp, handType);
         keepMove.AddOnStateDownListener(TriggerDown, handType);
@@ -61,12 +65,17 @@ public class MovementRecognizer : MonoBehaviour
     public void TriggerUp(SteamVR_Action_Boolean fromAction, SteamVR_Input_Sources fromSource)
     {
         Debug.Log("Trigger is up");
-        EndMovement();
+        if (isGrabWand) {
+            EndMovement();
+        }
     }
     public void TriggerDown(SteamVR_Action_Boolean fromAction, SteamVR_Input_Sources fromSource)
     {
         Debug.Log("Trigger is down");
-        StartMovement();
+        if (isGrabWand)
+        {
+            StartMovement();
+        }
     }
 
     private void StartMovement()
@@ -118,6 +127,12 @@ public class MovementRecognizer : MonoBehaviour
         Result result = PointCloudRecognizer.Classify(gesture, _listSpells.ToArray());
 
         Debug.Log("Spell recognize: " + result.GestureClass + ", " + result.Score);
+        _spellsManager.CastSpells(result.GestureClass);
+    }
+
+    public void grabWand()
+    {
+        isGrabWand = !isGrabWand;
     }
 
     // DEBUG MODE FUNCTIONS
