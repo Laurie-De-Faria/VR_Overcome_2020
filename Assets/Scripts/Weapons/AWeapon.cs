@@ -24,12 +24,10 @@ public abstract class AWeapon : MonoBehaviour
         else if (col.gameObject.GetComponent<AWeapon>() != null)
         {
             DoDefence(col.gameObject.GetComponent<AWeapon>());
-            Debug.Log("br");
         }
         else
         {
             SetDurability(durability - 0.1f);
-            Debug.Log("oke");
         }
     }
 
@@ -68,7 +66,6 @@ public abstract class AWeapon : MonoBehaviour
 
     private void DestroyWeapon()
     {
-        Debug.Log("Weapon was broken");
         Destroy(this.gameObject);
     }
 }
