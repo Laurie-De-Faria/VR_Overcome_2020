@@ -107,6 +107,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4656ea7ddc0fb5e449b78621740dc8e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bloodParticules: {fileID: 8926484042661614526, guid: 199bb3e2f276cf54d9dbc426bde45ccc,
+    type: 3}
   _followPlayer: 1
 --- !u!54 &9145625184072194635
 Rigidbody:
