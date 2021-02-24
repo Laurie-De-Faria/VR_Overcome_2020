@@ -127,7 +127,7 @@ public class MovementRecognizer : MonoBehaviour
         Result result = PointCloudRecognizer.Classify(gesture, _listSpells.ToArray());
 
         Debug.Log("Spell recognize: " + result.GestureClass + ", " + result.Score);
-        _spellsManager.CastSpells(result.GestureClass);
+        _spellsManager.CastSpells(result.GestureClass, GameObject.FindGameObjectWithTag("MainCamera").transform);
     }
 
     public void grabWand()

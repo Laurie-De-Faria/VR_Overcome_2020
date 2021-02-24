@@ -2381,7 +2381,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _spellsInstance:
-  - {fileID: 7534146550292823622, guid: bf4ee0fd0b454bc49b4d7cc624f74ad9, type: 3}
+  - {fileID: 2829851584664192718, guid: bf4ee0fd0b454bc49b4d7cc624f74ad9, type: 3}
 --- !u!4 &2085263137
 Transform:
   m_ObjectHideFlags: 0
