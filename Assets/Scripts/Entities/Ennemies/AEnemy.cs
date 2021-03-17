@@ -7,20 +7,15 @@ public abstract class AEnemy : AEntity
     protected GameObject player;
     [SerializeField] protected bool _followPlayer;
     private Rigidbody _rgbody;
-    private float _speed;
+    [SerializeField] protected float _speed;
 
     //Animation
     private Animator _animator;
     private float _timer;
 
-    public AEnemy(float life, float defence, float speed, bool followPlayer) : base(life, defence)
+    protected override void Start()
     {
-        _speed = speed;
-        _followPlayer = followPlayer;
-    }
-
-    protected void Start()
-    {
+        base.Start();
         _rgbody = this.gameObject.GetComponent<Rigidbody>();
         _animator = this.GetComponent<Animator>();
         _timer = 5.0f;
