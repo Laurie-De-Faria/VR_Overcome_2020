@@ -1339,7 +1339,7 @@ GameObject:
   - component: {fileID: 1637488709}
   m_Layer: 0
   m_Name: Wizard
-  m_TagString: Untagged
+  m_TagString: Enemies
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1428,6 +1428,8 @@ MonoBehaviour:
   life: 100
   _followPlayer: 1
   _speed: 4
+  _spellObj: {fileID: 3531653314391116534, guid: 9f54ca98e8062884c8314b5e1a0d63ef,
+    type: 3}
 --- !u!1 &8191115920090362402
 GameObject:
   m_ObjectHideFlags: 0

@@ -15,10 +15,8 @@ public abstract class AEntity : MonoBehaviour
     {
         _bloodParticules = new VisualEffect();
         //_bloodParticules.visualEffectAsset = bloodParticules;
-        Debug.Log("lol 1");
         if (_healthBar != null)
         {
-            Debug.Log("test");
             _healthBar.SetMaxHealthBar(life);
         }
     }

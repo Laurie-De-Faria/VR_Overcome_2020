@@ -9,16 +9,10 @@ public abstract class AEnemy : AEntity
     private Rigidbody _rgbody;
     [SerializeField] protected float _speed;
 
-    //Animation
-    private Animator _animator;
-    private float _timer;
-
     protected override void Start()
     {
         base.Start();
         _rgbody = this.gameObject.GetComponent<Rigidbody>();
-        _animator = this.GetComponent<Animator>();
-        _timer = 5.0f;
         _InitPlayer();
     }
 
@@ -35,11 +29,9 @@ public abstract class AEnemy : AEntity
         Debug.Log(player);
     }
 
-    protected void _FollowPlayer()
+    protected virtual void _FollowPlayer()
     {
         int minDist = 10;
-        int cooldown = 5;
-        int speed = 4;
 
         Debug.Log("Look at Player!");
         this.gameObject.transform.LookAt(player.transform);
@@ -47,17 +39,7 @@ public abstract class AEnemy : AEntity
         // Test
         if (Vector3.Distance(transform.position, player.transform.position) >= minDist)
         {
-            _animator.SetBool("Run", true);
-            transform.position += transform.forward * speed * Time.deltaTime;
-        } else
-        {
-            _animator.SetBool("Run", false);
-            if (_timer >= cooldown)
-            {
-                _animator.SetTrigger("CastSpell");
-                _timer = 0;
-            }
+            transform.position += transform.forward * _speed * Time.deltaTime;
         }
-        _timer += 1 * Time.deltaTime;
     }
 }
