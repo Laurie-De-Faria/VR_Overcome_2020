@@ -7,16 +7,11 @@ public abstract class AEnemy : AEntity
     protected GameObject player;
     [SerializeField] protected bool _followPlayer;
     private Rigidbody _rgbody;
-    private float _speed;
+    [SerializeField] protected float _speed;
 
-    public AEnemy(float life, float defence, float speed, bool followPlayer) : base(life, defence)
+    protected override void Start()
     {
-        _speed = speed;
-        _followPlayer = followPlayer;
-    }
-
-    protected void Start()
-    {
+        base.Start();
         _rgbody = this.gameObject.GetComponent<Rigidbody>();
         _InitPlayer();
     }
@@ -34,9 +29,17 @@ public abstract class AEnemy : AEntity
         Debug.Log(player);
     }
 
-    protected void _FollowPlayer()
+    protected virtual void _FollowPlayer()
     {
+        int minDist = 10;
+
         Debug.Log("Look at Player!");
         this.gameObject.transform.LookAt(player.transform);
+
+        // Test
+        if (Vector3.Distance(transform.position, player.transform.position) >= minDist)
+        {
+            transform.position += transform.forward * _speed * Time.deltaTime;
+        }
     }
 }

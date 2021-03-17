@@ -4,12 +4,14 @@ using UnityEngine;
 
 public class SpawnEnnemies : ASpawner
 {
+    [SerializeField]
     private bool isPressed;
 
     // Start is called before the first frame update
     void Start()
     {
-        _InitSpawner(10f);
+        // _InitSpawner(10f);
+        _InitSpawner(1f); //tmp
     }
 
     public void SetActive()
@@ -27,6 +29,7 @@ public class SpawnEnnemies : ASpawner
         {
             Spawn();
             _ResetTimer();
+            isPressed = false;
         }
     }
 }
