@@ -16,7 +16,7 @@ public abstract class AEntity : MonoBehaviour
         this.life = life;
         this.defence = defence;
         _bloodParticules = new VisualEffect();
-        _bloodParticules.visualEffectAsset = bloodParticules;
+        //_bloodParticules.visualEffectAsset = bloodParticules;
     }
 
     public void DownLife(float attack)
