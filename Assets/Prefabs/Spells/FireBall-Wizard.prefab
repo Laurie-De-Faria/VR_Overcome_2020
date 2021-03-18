@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 4445647085873079425}
   - component: {fileID: 1734232598}
   - component: {fileID: 3627896615006455676}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: FireBall-Wizard
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -162,7 +162,7 @@ GameObject:
   m_Component:
   - component: {fileID: 940855267825012749}
   - component: {fileID: 4684423954326467461}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Point Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
