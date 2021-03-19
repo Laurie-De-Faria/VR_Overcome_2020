@@ -47,7 +47,7 @@ public abstract class AWeapon : MonoBehaviour
         }
     }
 
-    private float GetDurability()
+    public float GetDurability()
     {
         return durability;
     }
@@ -66,6 +66,6 @@ public abstract class AWeapon : MonoBehaviour
 
     private void DestroyWeapon()
     {
-        Debug.Log("Weapon was broken");
+        Destroy(this.gameObject);
     }
 }
